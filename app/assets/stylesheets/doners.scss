@@ -1,0 +1,33 @@
+// Place all the styles related to the Doners controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.searchinput {
+    width: 65%;
+    height:33px;
+    padding: 10px 13px;
+	border: 0;
+	font-size: 18px;
+	border: 2px solid #eee;
+	border-radius: 20px;
+	outline: none;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    box-shadow: 0 0 20px #eee;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.searchinput:focus {
+    width: 80%;
+}
+
+
+.transparent_button{   
+background-color: Transparent;
+border: none;             /* Your can add different style/properties of button Here*/
+cursor:pointer;    
+}
+
+
+
+

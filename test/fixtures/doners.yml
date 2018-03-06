@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: 1
+  gender: MyString
+  race: MyString
+  religion: MyString
+  networth: 9.99
+  employer: MyString
+  position: MyString
+  education: MyString
+  associations: MyString
+  military: MyString
+  location: MyString
+  zip: MyString
+  description: MyText
+  life_event: MyString
+  donation_goal: 9.99
+  donation_YTD: 9.99
+
+two:
+  name: MyString
+  age: 1
+  gender: MyString
+  race: MyString
+  religion: MyString
+  networth: 9.99
+  employer: MyString
+  position: MyString
+  education: MyString
+  associations: MyString
+  military: MyString
+  location: MyString
+  zip: MyString
+  description: MyText
+  life_event: MyString
+  donation_goal: 9.99
+  donation_YTD: 9.99
