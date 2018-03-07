@@ -14,12 +14,12 @@
       <br/>
             
         <%= form_tag(doners_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "ID/Name" ,class: "searchinput"%>
+          <%= text_field_tag :search, params[:search], placeholder: "ID/Name" ,class: "searchinput"%>
 
-        <%#= submit_tag "Search",:class => "btn btn-success" %>
-        <%= button_tag(type: "submit", class: "btn transparent_button") do %>
-            <i class="fa fa-lg fa-search searchicon"></i>
-        <% end %>
+          <%#= submit_tag "Search",:class => "btn btn-success" %>
+          <%= button_tag(type: "submit", class: "btn transparent_button") do %>
+              <i class="fa fa-lg fa-search searchicon"></i>
+          <% end %>
         
         <% end %>
           
@@ -46,14 +46,18 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <h2 class="welcome animated fadeInUp">Welcome to EagleForce Doner Management System</h2>
+      <h2 class="welcome animated fadeInUp">Welcome to EagleForce Doner Information Management System</h2>
     </div>
   </div>
 
 
   <br/>
   <br/>
-
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= link_to 'New Doner', new_doner_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
 
   <!-- <p id="notice"><%= notice %></p> -->
 
@@ -61,9 +65,52 @@
 
   <h1>Listing Doners</h1>
 
-  <table class="table table-hover">
+<div class="row">
+  <% @doners.each do |doner| %>
+  
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">              
+          <%= image_tag doner.image.url(:thumb) %>
+        </div>
+          <div class="card-body">
+            <p class="card-text">
+            <strong>ID:</strong>
+            <%= doner.id %>
+            </p>
+            <p class="card-text">
+            <strong>Name:</strong>
+            <%= doner.name %>
+            </p>
+            <p class="card-text">
+            <strong>Donation Goal:</strong>
+            <%= doner.donation_goal %>
+            </p>
+            <p class="card-text">
+              <strong>Donation YTD:</strong>
+              <%= doner.donation_YTD %>
+            </p>
+          </div>
+        </div>
+        <div class="card-footer text-center"> 
+          <%= link_to 'View', doner , class: "btn btn-sm btn-primary" %></td>
+          <%= link_to 'Edit', edit_doner_path(doner), class: "btn btn-sm btn-warning"%></td>
+          <%= link_to 'Delete', doner, class: "btn btn-sm btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <br/>
+    </div>
+
+  
+        
+  <% end %>
+
+    </div>
+
+
+  <!-- <table class="table table-hover">
     <thead>
       <tr>
+        <th>Image</th>
         <th>ID</th>
         <th>Name</th>
         <th>Age</th>
@@ -71,15 +118,15 @@
         <th>Race</th>
         <th>Religion</th>
         <th>Networth</th>
-        <!-- <th>Employer</th>
+        <th>Employer</th>
         <th>Position</th>
         <th>Education</th>
         <th>Associations</th>
-        <th>Military</th> -->
+        <th>Military</th>
         <th>Location</th>
-        <!-- <th>Zip</th>
+        <th>Zip</th>
         <th>Description</th>
-        <th>Life event</th> -->
+        <th>Life event</th>
         <th>Donation goal</th>
         <th>Donation ytd</th>
         <th colspan="3"></th>
@@ -89,6 +136,7 @@
     <tbody>
       <% @doners.each do |doner| %>
         <tr>
+          <td><%= image_tag doner.image.url(:thumb) %></td>
           <td><%= doner.id %></td>
           <td><%= doner.name %></td>
           <td><%= doner.age %></td>
@@ -96,29 +144,25 @@
           <td><%= doner.race %></td>
           <td><%= doner.religion %></td>
           <td><%= doner.networth %></td>
-          <!-- <td><%= doner.employer %></td>
+          <td><%= doner.employer %></td>
           <td><%= doner.position %></td>
           <td><%= doner.education %></td>
           <td><%= doner.associations %></td>
-          <td><%= doner.military %></td> -->
+          <td><%= doner.military %></td> 
           <td><%= doner.location %></td>
-         <!--  <td><%= doner.zip %></td>
+         <td><%= doner.zip %></td>
           <td><%= doner.description %></td>
-          <td><%= doner.life_event %></td> -->
+          <td><%= doner.life_event %></td>
           <td><%= doner.donation_goal %></td>
           <td><%= doner.donation_YTD %></td>
-          <td><%= link_to 'Show', doner , class: "btn btn-sm btn-primary" %></td>
+          <td><%= link_to 'View', doner , class: "btn btn-sm btn-primary" %></td>
           <td><%= link_to 'Edit', edit_doner_path(doner), class: "btn btn-sm btn-warning"%></td>
           <td><%= link_to 'Delete', doner, class: "btn btn-sm btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
-  </table>
+  </table> -->
 
   <br>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <%= link_to 'New Doner', new_doner_path, class: "btn btn-success btn-lg" %>
-    </div>
-  </div>
+  
 </div>

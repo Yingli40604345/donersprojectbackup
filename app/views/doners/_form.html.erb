@@ -1,4 +1,4 @@
-<%= form_for(@doner) do |f| %>
+<%= form_for @doner, html: {multipart: true}  do |f| %>
   <% if @doner.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@doner.errors.count, "error") %> prohibited this doner from being saved:</h2>
@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="row">
+
     <div class="col-md-3">
 
       <div class="field">
@@ -128,6 +129,14 @@
       <div class="field">
         <%= f.label :description %><br>
         <%= f.text_area :description , class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="field ">
+        <%= f.label :image %><br>
+        <%= f.file_field :image, class: "form-control" %> 
       </div>
     </div>
   </div>

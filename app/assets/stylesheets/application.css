@@ -32,6 +32,10 @@ body {
 .card p {
 	font-size: 18px;
 }
+.card-header {
+	text-align: center;
+	
+}
 .card-footer {
 	font-size: 18px;
 }
