@@ -4,7 +4,8 @@ class Doner < ActiveRecord::Base
 	has_attached_file :image, styles: { large: "600x600>", medium: "300x300#", small: "200x200#",thumb: "150x150#" }, default_url: "/system/doners/images/missing.png"
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   	# !paperclip
-
+  	paginates_per 6
+  	
 	def self.search(search)
 		if search
 			where("name LIKE ? OR id = ?", "%#{search}%",search).order('created_at DESC')
@@ -12,5 +13,24 @@ class Doner < ActiveRecord::Base
 			all
 		end	
 	end
+
+	def self.searchdonationgoal(search)
+		if search
+			where("donation_goal > ?", search).order('created_at DESC')
+		else
+			all
+		end	
+	end
+
+	def self.searchdonationytd(search)
+		if search
+			where("donation_YTD > ?", search).order('created_at DESC')
+		else
+			all
+		end	
+	end
+
+
+
 
 end

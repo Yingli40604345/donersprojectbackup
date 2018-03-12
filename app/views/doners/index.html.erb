@@ -1,17 +1,37 @@
 <div class="container"> 
   <div class="row">
     <div class="col-md-4">
-      <figure>
+      <%= link_to root_path do %>
         <%=image_tag("eagleforcefoundationlogo.png",  {:style => "width:35%;"}) %>
-      </figure>
+      <%end%>
     </div>
+       
+      
+    <div class="col-md-8 text-right">
+       <br/>
+      <i class="fa fa-user fa-lg usericon"></i>  
 
+      <span class="useremail"><%= current_user.email %></span>
 
+      <%= link_to "logout", destroy_user_session_path, class: "btn btn-danger btn-sm",method: :delete %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= link_to 'New Doner', new_doner_path, class: "btn animatedbutton animatedbutton5" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <!-- <p id="notice"><%= notice %></p> -->
+  <div class="row">
     <div class="col-md-4 text-center">
       <!-- search form -->
-
-    
-      <br/>
+      
             
         <%= form_tag(doners_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "ID/Name" ,class: "searchinput"%>
@@ -28,83 +48,95 @@
       <!-- !search form -->
     </div>
 
-        
+    <div class="col-md-4 text-center">
+      <!-- search form -->
       
-    <div class="col-md-4 text-right">
-       <br/>
-      <i class="fa fa-user fa-lg usericon"></i>  
+            
+        <%= form_tag(doners_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :donationgoal,  params[:donationgoal], placeholder: "Donation Goal >" ,class: "searchinput"%>
 
-      <span class="useremail"><%= current_user.email %></span>
-
-      <%= link_to "logout", destroy_user_session_path, class: "btn btn-danger btn-sm",method: :delete %>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h2 class="welcome animated fadeInUp">Welcome to EagleForce Doner Information Management System</h2>
-    </div>
-  </div>
-
-
-  <br/>
-  <br/>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <%= link_to 'New Doner', new_doner_path, class: "btn btn-success btn-lg" %>
-    </div>
-  </div>
-
-  <!-- <p id="notice"><%= notice %></p> -->
-
-
-
-  <h1>Listing Doners</h1>
-
-<div class="row">
-  <% @doners.each do |doner| %>
-  
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">              
-          <%= image_tag doner.image.url(:thumb) %>
-        </div>
-          <div class="card-body">
-            <p class="card-text">
-            <strong>ID:</strong>
-            <%= doner.id %>
-            </p>
-            <p class="card-text">
-            <strong>Name:</strong>
-            <%= doner.name %>
-            </p>
-            <p class="card-text">
-            <strong>Donation Goal:</strong>
-            <%= doner.donation_goal %>
-            </p>
-            <p class="card-text">
-              <strong>Donation YTD:</strong>
-              <%= doner.donation_YTD %>
-            </p>
-          </div>
-        </div>
-        <div class="card-footer text-center"> 
-          <%= link_to 'View', doner , class: "btn btn-sm btn-primary" %></td>
-          <%= link_to 'Edit', edit_doner_path(doner), class: "btn btn-sm btn-warning"%></td>
-          <%= link_to 'Delete', doner, class: "btn btn-sm btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-        <br/>
-    </div>
-
-  
+          <%#= submit_tag "Search",:class => "btn btn-success" %>
+          <%= button_tag(type: "submit", class: "btn transparent_button") do %>
+              <i class="fa fa-lg fa-search searchicon"></i>
+          <% end %>
         
-  <% end %>
+        <% end %>
+          
+        
+     
+      <!-- !search form -->
+    </div>
+
+    <div class="col-md-4 text-center">
+      <!-- search form -->
+      
+            
+        <%= form_tag(doners_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :donationytd,  params[:donationytd], placeholder: "Donation YTD >" ,class: "searchinput"%>
+
+          <%#= submit_tag "Search",:class => "btn btn-success" %>
+          <%= button_tag(type: "submit", class: "btn transparent_button") do %>
+              <i class="fa fa-lg fa-search searchicon"></i>
+          <% end %>
+        
+        <% end %>
+          
+        
+     
+      <!-- !search form -->
+    </div>
+
+
+
+  </div>
+  <br/>
+  <br/>
+
+  <div class="listingdoners">
+    <h2>Listing Doners</h2>
+  </div>
+  <%=paginate @doners %>
+  <br/>
+
+  <div class="row">
+    <% @doners.each do |doner| %>
+    
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">              
+            <%= image_tag doner.image.url(:thumb) %>
+          </div>
+            <div class="card-body">
+              <p class="card-text">
+              <strong>ID:</strong>
+              <%= doner.id %>
+              </p>
+              <p class="card-text">
+              <strong>Name:</strong>
+              <%= doner.name %>
+              </p>
+              <p class="card-text">
+              <strong>Donation Goal:</strong>
+              <%= doner.donation_goal %>
+              </p>
+              <p class="card-text">
+                <strong>Donation YTD:</strong>
+                <%= doner.donation_YTD %>
+              </p>
+            </div>
+          </div>
+          <div class="card-footer text-center"> 
+            <%= link_to 'View', doner , class: "btn btn-sm btn-primary" %></td>
+            <%= link_to 'Edit', edit_doner_path(doner), class: "btn btn-sm btn-warning"%></td>
+            <%= link_to 'Delete', doner, class: "btn btn-sm btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <br/>
+      </div>    
+      <% end %>
 
     </div>
+    <%=paginate @doners %>
+
 
 
   <!-- <table class="table table-hover">

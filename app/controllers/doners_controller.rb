@@ -4,12 +4,18 @@ class DonersController < ApplicationController
   # GET /doners
   # GET /doners.json
   def index
+
    
     if params[:search]
-      @doners=Doner.search(params[:search]).order('created_at DESC').page params[:page]
+      @doners=current_user.doners.search(params[:search]).order('created_at DESC').page params[:page]
+    
+    elsif params[:donationgoal]
+      @doners=current_user.doners.searchdonationgoal(params[:donationgoal]).order('created_at DESC').page params[:page]
+    elsif params[:donationytd]
+      @doners=current_user.doners.searchdonationytd(params[:donationytd]).order('created_at DESC').page params[:page]
     else
       
-      @doners=Doner.order('created_at DESC').page params[:page]
+      @doners=current_user.doners.order('created_at DESC').page params[:page]
     end
   end
 
