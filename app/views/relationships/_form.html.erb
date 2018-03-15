@@ -1,0 +1,29 @@
+<%= form_for(@relationship) do |f| %>
+  <% if @relationship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
+
+      <ul>
+      <% @relationship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field text-left">
+    <%= f.label :doner_id %><br>
+    <%= f.number_field :doner_id, class: "form-control" %>
+  </div>
+  <div class="field text-left">
+    <%= f.label :target %><br>
+    <%= f.number_field :target, class: "form-control" %>
+  </div>
+  <div class="field text-left">
+    <%= f.label :link_description %><br>
+    <%= f.text_field :link_description, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%=f.submit 'Submit', class: 'btn btn-success btn-lg btn-block'%>
+  </div>
+<% end %>

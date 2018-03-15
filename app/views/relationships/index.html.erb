@@ -1,0 +1,71 @@
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to root_path do %>
+        <%=image_tag("eagleforcefoundationlogo.png",  {:style => "width:35%;"}) %>
+      <%end%>
+    </div>
+       
+      
+    <div class="col-md-8 text-right">
+       <br/>
+      <i class="fa fa-user fa-lg usericon"></i>  
+
+      <span class="useremail"><%= current_user.email %></span>
+
+      <%= link_to "logout", destroy_user_session_path, class: "btn btn-danger btn-sm",method: :delete %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= link_to 'New Relationship', new_relationship_path, class: "btn animatedbutton animatedbutton5" %>
+    </div>
+  </div>
+
+  <br/>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Relationships</h1>
+<%=paginate @relationships %>
+<br/>
+
+<table class="table table-hover text-center" >
+  <thead>
+    <tr >
+      <th>Doner ID</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Target ID</th>
+      <th>TargetName</th>
+      <th>TargetPhoto</th>
+      <th>Relationship description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationships.each do |relationship| %>
+      <tr>
+        <td ><%= relationship.doner_id %></td>
+        <td><%= Doner.find(relationship.doner_id).name %></td>
+        <td><%= image_tag Doner.find(relationship.doner_id).image.url(:thumb) %></td>
+ 
+        <td><%= relationship.target %></td>
+        <td><%= Doner.find(relationship.target).name %></td>
+        <td><%= image_tag Doner.find(relationship.target).image.url(:thumb) %></td>
+        <td><%= relationship.link_description %></td>
+        <td><%= link_to 'Show', relationship,class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_relationship_path(relationship),class: "btn btn-warning" %></td>
+        <td><%= link_to 'Delete', relationship,class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%=paginate @relationships %>
+
+</div><!-- end of container -->

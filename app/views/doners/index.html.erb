@@ -103,8 +103,10 @@
     
       <div class="col-md-4">
         <div class="card">
-          <div class="card-header">              
-            <%= image_tag doner.image.url(:thumb) %>
+          <div class="card-header">
+          <%=link_to doner do%>             
+             <%=image_tag doner.image.url(:small) %>
+             <%end%>
           </div>
             <div class="card-body">
               <p class="card-text">

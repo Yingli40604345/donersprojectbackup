@@ -1,7 +1,8 @@
 class Doner < ActiveRecord::Base
 	belongs_to :user
+	has_many :relationships
 	# paperclip
-	has_attached_file :image, styles: { large: "600x600>", medium: "300x300#", small: "200x200#",thumb: "150x150#" }, default_url: "/system/doners/images/missing.png"
+	has_attached_file :image, styles: { large: "600x600>", medium: "300x300#", small: "150x150#",thumb: "80x80#" },  default_url: "/system/doners/images/missing_:style.png"
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   	# !paperclip
   	paginates_per 6
@@ -29,6 +30,17 @@ class Doner < ActiveRecord::Base
 			all
 		end	
 	end
+
+	def self.searchdoner(search)
+		if search
+			where("id = ?",search)
+		else
+			all
+		end	
+	end
+
+
+	
 
 
 

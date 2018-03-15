@@ -4,6 +4,7 @@
 
 .btnglow {
   flex: 1 1 auto;
+  width:20em;
   margin: 10px;
   padding: 30px;
   text-align: center;
@@ -19,8 +20,8 @@
 
   // animation
   	animation-iteration-count: infinite;
-    animation-duration: 1.5s;
-    animation-name: jump;
+    animation-duration: 2.5s;
+    animation-name: pulse_animation;
 
  }
 .btnglow:hover {
@@ -51,9 +52,18 @@
 }
 
 
+.btnglow-6 {
+  background-image: linear-gradient(to right, #f0b3ff 0%, #ffecd2 51%, #f0b3ff 100%);
+}
+
+.btnglow-7 {
+  background-image: linear-gradient(to right, #66b3ff 0%, #00ffff 51%, #66b3ff 100%);
+}
 
 
-
+.btnglow-8 {
+  background-image: linear-gradient(to right, #99ffd6 0%, #00ff80 51%, #99ffd6 100%);
+}
 
 //cutebutton
 $green: #2ecc71;

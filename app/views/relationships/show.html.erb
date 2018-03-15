@@ -1,0 +1,220 @@
+<div class="container">
+	<div class="card">
+		<div class="card-body">
+			<div class="title">
+				<div class="title-word">Relationship:
+		    		<%= @relationship.link_description %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+		        <div class="card-header">
+					<%= image_tag Doner.find(@relationship.doner_id).image.url(:small) %>
+				</div>
+		        <div class="card-body">
+		        	<p>
+		  				<strong>Doner ID:</strong>
+		  				<%= @relationship.doner_id %>
+					</p>
+					<p>
+					  <strong>Doner Name:</strong>
+					  <%= Doner.find(@relationship.doner_id).name %>
+					</p>
+
+					<!-- <p>			
+			            <strong>Age:</strong>
+			            <%= Doner.find(@relationship.doner_id).age %>
+			        </p>
+
+			        <p>
+			            <strong>Gender:</strong>
+			            <%= Doner.find(@relationship.doner_id).gender %>
+			        </p>
+
+			        <p>
+			            <strong>Race:</strong>
+			            <%= Doner.find(@relationship.doner_id).race %>
+			        </p>
+
+			        <p>
+			            <strong>Religion:</strong>
+			            <%= Doner.find(@relationship.doner_id).religion %>
+			        </p>
+
+			        <p>
+			            <strong>Networth:</strong>
+			            <%= Doner.find(@relationship.doner_id).networth %>
+			        </p>
+
+			        <p>
+			            <strong>Employer:</strong>
+			            <%= Doner.find(@relationship.doner_id).employer %>
+			        </p>
+
+			        <p>
+			            <strong>Position:</strong>
+			            <%= Doner.find(@relationship.doner_id).position %>
+			        </p>
+
+			        <p>
+			            <strong>Education:</strong>
+			            <%= Doner.find(@relationship.doner_id).education %>
+			        </p>
+
+			        <p>
+			            <strong>Associations:</strong>
+			            <%= Doner.find(@relationship.doner_id).associations %>
+			        </p>
+
+			        <p>
+			            <strong>Military:</strong>
+			            <%= Doner.find(@relationship.doner_id).military %>
+			        </p>
+
+			        <p>
+			            <strong>Location:</strong>
+			            <%= Doner.find(@relationship.doner_id).location %>
+			        </p>
+
+			        <p>
+			            <strong>Zip:</strong>
+			            <%= Doner.find(@relationship.doner_id).zip %>
+			        </p>
+
+			        <p>
+			            <strong>Description:</strong>
+			            <%= Doner.find(@relationship.doner_id).description %>
+			        </p>
+
+			        <p>
+			            <strong>Life event:</strong>
+			            <%= Doner.find(@relationship.doner_id).life_event %>
+			        </p>
+
+			        <p>
+			            <strong>Donation goal:</strong>
+			            <%= Doner.find(@relationship.doner_id).donation_goal %>
+			        </p>
+
+			        <p>
+			            <strong>Donation ytd:</strong>
+			            <%= Doner.find(@relationship.doner_id).donation_YTD %>
+			        </p> -->
+
+				</div>
+		     </div>
+	     </div>
+
+		<div class="col-md-6">
+			<div class="card">
+	        	<div class="card-header">
+	        		<%= image_tag Doner.find(@relationship.target).image.url(:small) %>
+	        	</div>
+	        	<div class="card-body">
+	        		<p>
+					  <strong>Target ID:</strong>
+					  <%= @relationship.target %>
+					</p>
+
+					<p>
+					  <strong>Target Name:</strong>
+					  <%= Doner.find(@relationship.target).name %>
+					</p>
+
+					<!-- <p>			
+			            <strong>Age:</strong>
+			            <%= Doner.find(@relationship.target).age %>
+			        </p>
+
+			        <p>
+			            <strong>Gender:</strong>
+			            <%= Doner.find(@relationship.target).gender %>
+			        </p>
+
+			        <p>
+			            <strong>Race:</strong>
+			            <%= Doner.find(@relationship.target).race %>
+			        </p>
+
+			        <p>
+			            <strong>Religion:</strong>
+			            <%= Doner.find(@relationship.target).religion %>
+			        </p>
+
+			        <p>
+			            <strong>Networth:</strong>
+			            <%= Doner.find(@relationship.target).networth %>
+			        </p>
+
+			        <p>
+			            <strong>Employer:</strong>
+			            <%= Doner.find(@relationship.target).employer %>
+			        </p>
+
+			        <p>
+			            <strong>Position:</strong>
+			            <%= Doner.find(@relationship.target).position %>
+			        </p>
+
+			        <p>
+			            <strong>Education:</strong>
+			            <%= Doner.find(@relationship.target).education %>
+			        </p>
+
+			        <p>
+			            <strong>Associations:</strong>
+			            <%= Doner.find(@relationship.target).associations %>
+			        </p>
+
+			        <p>
+			            <strong>Military:</strong>
+			            <%= Doner.find(@relationship.target).military %>
+			        </p>
+
+			        <p>
+			            <strong>Location:</strong>
+			            <%= Doner.find(@relationship.target).location %>
+			        </p>
+
+			        <p>
+			            <strong>Zip:</strong>
+			            <%= Doner.find(@relationship.target).zip %>
+			        </p>
+
+			        <p>
+			            <strong>Description:</strong>
+			            <%= Doner.find(@relationship.target).description %>
+			        </p>
+
+			        <p>
+			            <strong>Life event:</strong>
+			            <%= Doner.find(@relationship.target).life_event %>
+			        </p>
+
+			        <p>
+			            <strong>Donation goal:</strong>
+			            <%= Doner.find(@relationship.target).donation_goal %>
+			        </p>
+
+			        <p>
+			            <strong>Donation ytd:</strong>
+			            <%= Doner.find(@relationship.target).donation_YTD %>
+			        </p> -->
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+<br/>
+
+
+
+<%= link_to 'Edit', edit_relationship_path(@relationship), class: 'btn btn-primary' %> 
+<%= link_to 'Back', relationships_path, class: 'btn btn-danger' %>
+</div> <!-- container -->

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :relationships
   get 'welcome/index'
-
+  get 'searchdoner', to: 'relationships#searchdoner'
   devise_for :users
   resources :doners
   root 'welcome#index'
