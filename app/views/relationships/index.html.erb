@@ -26,46 +26,71 @@
   </div>
 
   <br/>
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Relationships</h1>
-<%=paginate @relationships %>
-<br/>
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <!-- search form -->
+      
+            
+        <%= form_tag(relationships_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :donorid, params[:donorid], placeholder: "Donor ID" ,class: "searchinput"%>
 
-<table class="table table-hover text-center" >
-  <thead>
-    <tr >
-      <th>Doner ID</th>
-      <th>Name</th>
-      <th>Photo</th>
-      <th>Target ID</th>
-      <th>TargetName</th>
-      <th>TargetPhoto</th>
-      <th>Relationship description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <%#= submit_tag "Search",:class => "btn btn-success" %>
+          <%= button_tag(type: "submit", class: "btn transparent_button") do %>
+              <i class="fa fa-lg fa-search searchicon"></i>
+          <% end %>
+        
+        <% end %>
+          
+        
+     
+      <!-- !search form -->
+    </div>
 
-  <tbody>
-    <% @relationships.each do |relationship| %>
-      <tr>
-        <td ><%= relationship.doner_id %></td>
-        <td><%= Doner.find(relationship.doner_id).name %></td>
-        <td><%= image_tag Doner.find(relationship.doner_id).image.url(:thumb) %></td>
- 
-        <td><%= relationship.target %></td>
-        <td><%= Doner.find(relationship.target).name %></td>
-        <td><%= image_tag Doner.find(relationship.target).image.url(:thumb) %></td>
-        <td><%= relationship.link_description %></td>
-        <td><%= link_to 'Show', relationship,class: "btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_relationship_path(relationship),class: "btn btn-warning" %></td>
-        <td><%= link_to 'Delete', relationship,class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+  </div>
+
+  <br/>
+
+  <h1>Listing Relationships</h1>
+  <%=paginate @relationships %>
+  <br/>
+
+  <table class="table table-hover text-center" >
+    <thead>
+      <tr >
+        <th>Donor ID</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Target ID</th>
+        <th>TargetName</th>
+        <th>TargetPhoto</th>
+        <th>Relationship description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @relationships.each do |relationship| %>
+        <tr>
+          <td ><%= relationship.donor_id %></td>
+          <td><%= Donor.find(relationship.donor_id).name %></td>
+          <td><%= image_tag Donor.find(relationship.donor_id).image.url(:thumb) %></td>
+   
+          <td><%= relationship.target %></td>
+          <td><%= Donor.find(relationship.target).name %></td>
+          <td><%= image_tag Donor.find(relationship.target).image.url(:thumb) %></td>
+          <td><%= relationship.link_description %></td>
+          <td><%= link_to 'Show', relationship,class: "btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_relationship_path(relationship),class: "btn btn-warning" %></td>
+          <td><%= link_to 'Delete', relationship,class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
-<%=paginate @relationships %>
+  <%=paginate @relationships %>
 
 </div><!-- end of container -->

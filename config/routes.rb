@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :relationships
   get 'welcome/index'
-  get 'searchdoner', to: 'relationships#searchdoner'
+  get 'searchdonor', to: 'relationships#searchdonor'
+  # get 'searchdonornameforrelationship', to: 'relationships#searchdonornameforrelationship'
   devise_for :users
-  resources :doners
+  resources :donors
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

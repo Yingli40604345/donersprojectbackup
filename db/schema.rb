@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20180313180946) do
 
-  create_table "doners", force: :cascade do |t|
+  create_table "donors", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.integer  "age",                limit: 4
     t.string   "gender",             limit: 255
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180313180946) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "doner_id",         limit: 4
+    t.integer  "donor_id",         limit: 4
     t.integer  "target",           limit: 4
     t.string   "link_description", limit: 255
     t.datetime "created_at",                   null: false

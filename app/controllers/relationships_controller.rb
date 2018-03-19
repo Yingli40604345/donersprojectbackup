@@ -4,7 +4,13 @@ class RelationshipsController < ApplicationController
   # GET /relationships
   # GET /relationships.json
   def index
-    @relationships = current_user.relationships.order('created_at DESC').page params[:page]
+
+    if params[:donorid]
+      @relationships=current_user.relationships.donorrelationshipssearch(params[:donorid]).order('created_at DESC').page params[:page]
+    else
+      @relationships = current_user.relationships.order('created_at DESC').page params[:page]
+    end
+
   end
 
   # GET /relationships/1
@@ -62,12 +68,19 @@ class RelationshipsController < ApplicationController
   end
 
 
-  def searchdoner
+  def searchdonor
     
-   if params[:donerid]
-      @doners=Doner.searchdoner(params[:donerid])
+   if params[:donorid]
+      @donor=Donor.searchdonor(params[:donorid])
+      
     end
   end
+
+
+  # def searchdonornameforrelationship
+  #    @searchdonorid=Donor.donornamesearch(params[:donorname])[0].id
+  #    byebug
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -77,6 +90,6 @@ class RelationshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relationship_params
-      params.require(:relationship).permit(:doner_id, :target, :link_description)
+      params.require(:relationship).permit(:donor_id, :target, :link_description)
     end
 end

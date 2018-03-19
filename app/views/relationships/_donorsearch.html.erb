@@ -1,0 +1,119 @@
+
+
+			<div class="modal-header text-center">
+				<h5 class="modal-title" id="modalLabel">
+					<%=  @donor[0].name %> 	<%=image_tag @donor[0].image.url(:medium)%>
+				</h5>
+				
+			    
+			    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			      	<span aria-hidden="true">&times;</span>
+			    </button>
+			</div>
+			     
+			<div class="modal-body">
+				<div class="container-fluid">
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Doner ID</div>
+				    	<div class="col-md-8"><%= @donor[0].id%></div>
+				  	</div> 
+				 	 <div class="row">
+				    	<div class="col-md-4 text-left">Gender</div>
+				    	<div class="col-md-8"><%=  @donor[0].age %></div>
+				 	</div> 
+
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Race</div>
+				    	<div class="col-md-8"><%= @donor[0].race %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Religion</div>
+				    	<div class="col-md-8"><%= @donor[0].religion %></div>
+				  	</div> 
+				 	<div class="row">
+				    	<div class="col-md-4 text-left">Networth</div>
+				    	<div class="col-md-8"><%= @donor[0].networth %></div>
+				  	</div>   
+				  	<div class="row">
+					    <div class="col-md-4 text-left">Employer</div>
+					    <div class="col-md-8"><%= @donor[0].employer %></div>
+					</div> 
+					<div class="row">
+					    <div class="col-md-4 text-left">Position</div>
+					    <div class="col-md-8"><%= @donor[0].position %></div>
+					</div> 
+					<div class="row">
+					    <div class="col-md-4 text-left">Education</div>
+					    <div class="col-md-8"><%= @donor[0].education %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Associations</div>
+				    	<div class="col-md-8"><%= @donor[0].associations %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Military</div>
+				    	<div class="col-md-8"><%= @donor[0].military %></div>
+				  	</div> 
+				  	<div class="row">
+				   		<div class="col-md-4 text-left">Location</div>
+				    	<div class="col-md-8"><%= @donor[0].location %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Zip</div>
+				    	<div class="col-md-8"><%= @donor[0].zip %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Description</div>
+				    	<div class="col-md-8"><%= @donor[0].description %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">LifeEvent</div>
+				    	<div class="col-md-8"><%= @donor[0].life_event %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Donation Goal</div>
+				    	<div class="col-md-8"><%= @donor[0].donation_goal %></div>
+				  	</div> 
+				  	<div class="row">
+				    	<div class="col-md-4 text-left">Donation YTD</div>
+				    	<div class="col-md-8"><%= @donor[0].donation_YTD %></div>
+				  	</div> 
+				  	
+
+				</div> 
+			</div> 
+			<div class="modal-footer">
+			    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+
+
+
+
+
+
+
+<!-- <div class="card">
+ 	<div class="card-header"> 
+    	      
+           
+        	<h4><%= @donor[0].name %></h4>
+        	<%=image_tag @donor[0].image.url(:small)%>
+      
+   </div>
+   <div class="card-body text-left">
+        
+
+      <p>
+        <strong>Donation goal:</strong>
+        <%= @donor[0].donation_goal %>
+      </p>
+
+      <p>
+        <strong>Donation ytd:</strong>
+        <%= @donor[0].donation_YTD %>
+      </p>
+      
+   </div>  
+</div>    
+
+ -->

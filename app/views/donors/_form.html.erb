@@ -1,0 +1,148 @@
+<%= form_for @donor, html: {multipart: true}  do |f| %>
+  <% if @donor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
+
+      <ul>
+      <% @donor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+
+    <div class="col-md-3">
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name , class: 'form-control'%>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :age %><br>
+        <%= f.number_field :age , class: 'form-control'%>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :gender %><br>
+        <%= f.text_field :gender , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :race %><br>
+        <%= f.text_field :race , class: 'form-control'%>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :religion %><br>
+        <%= f.text_field :religion , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :networth %><br>
+        <%= f.text_field :networth , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :employer %><br>
+        <%= f.text_field :employer , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :position %><br>
+        <%= f.text_field :position , class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :education %><br>
+        <%= f.text_field :education , class: 'form-control'%>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :associations %><br>
+        <%= f.text_field :associations , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :military %><br>
+        <%= f.text_field :military , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :location %><br>
+        <%= f.text_field :location , class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+
+  <div  class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :zip %><br>
+        <%= f.text_field :zip , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :life_event %><br>
+        <%= f.text_field :life_event , class: 'form-control'%>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :donation_goal %><br>
+        <%= f.text_field :donation_goal , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :donation_YTD %><br>
+        <%= f.text_field :donation_YTD , class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description , class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="field ">
+        <%= f.label :image %><br>
+        <%= f.file_field :image, class: "form-control" %> 
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%=f.submit 'Submit', class: 'btn btn-success btn-lg btn-block'%>
+   
+  </div>
+<% end %>

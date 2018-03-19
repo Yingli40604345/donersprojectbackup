@@ -3,3 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 td{
  vertical-align: middle !important; }
+
+#donersearchresults{
+	margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+.searchinputwithoutanimation {
+    width: 90%;
+    height:33px;
+    margin-top: 5px;
+    padding: 10px 13px;
+	border: 0;
+	font-size: 18px;
+	border: 2px solid #eee;
+	border-radius: 20px;
+	outline: none;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    box-shadow: 0 0 20px #eee;
+}

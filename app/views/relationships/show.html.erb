@@ -13,96 +13,96 @@
 		<div class="col-md-6">
 			<div class="card">
 		        <div class="card-header">
-					<%= image_tag Doner.find(@relationship.doner_id).image.url(:small) %>
+					<%= image_tag Donor.find(@relationship.donor_id).image.url(:small) %>
 				</div>
 		        <div class="card-body">
 		        	<p>
-		  				<strong>Doner ID:</strong>
-		  				<%= @relationship.doner_id %>
+		  				<strong>Donor ID:</strong>
+		  				<%= @relationship.donor_id %>
 					</p>
 					<p>
-					  <strong>Doner Name:</strong>
-					  <%= Doner.find(@relationship.doner_id).name %>
+					  <strong>Donor Name:</strong>
+					  <%= Donor.find(@relationship.donor_id).name %>
 					</p>
 
 					<!-- <p>			
 			            <strong>Age:</strong>
-			            <%= Doner.find(@relationship.doner_id).age %>
+			            <%= Donor.find(@relationship.donor_id).age %>
 			        </p>
 
 			        <p>
 			            <strong>Gender:</strong>
-			            <%= Doner.find(@relationship.doner_id).gender %>
+			            <%= Donor.find(@relationship.donor_id).gender %>
 			        </p>
 
 			        <p>
 			            <strong>Race:</strong>
-			            <%= Doner.find(@relationship.doner_id).race %>
+			            <%= Donor.find(@relationship.donor_id).race %>
 			        </p>
 
 			        <p>
 			            <strong>Religion:</strong>
-			            <%= Doner.find(@relationship.doner_id).religion %>
+			            <%= Donor.find(@relationship.donor_id).religion %>
 			        </p>
 
 			        <p>
 			            <strong>Networth:</strong>
-			            <%= Doner.find(@relationship.doner_id).networth %>
+			            <%= Donor.find(@relationship.donor_id).networth %>
 			        </p>
 
 			        <p>
 			            <strong>Employer:</strong>
-			            <%= Doner.find(@relationship.doner_id).employer %>
+			            <%= Donor.find(@relationship.donor_id).employer %>
 			        </p>
 
 			        <p>
 			            <strong>Position:</strong>
-			            <%= Doner.find(@relationship.doner_id).position %>
+			            <%= Donor.find(@relationship.donor_id).position %>
 			        </p>
 
 			        <p>
 			            <strong>Education:</strong>
-			            <%= Doner.find(@relationship.doner_id).education %>
+			            <%= Donor.find(@relationship.donor_id).education %>
 			        </p>
 
 			        <p>
 			            <strong>Associations:</strong>
-			            <%= Doner.find(@relationship.doner_id).associations %>
+			            <%= Donor.find(@relationship.donor_id).associations %>
 			        </p>
 
 			        <p>
 			            <strong>Military:</strong>
-			            <%= Doner.find(@relationship.doner_id).military %>
+			            <%= Donor.find(@relationship.donor_id).military %>
 			        </p>
 
 			        <p>
 			            <strong>Location:</strong>
-			            <%= Doner.find(@relationship.doner_id).location %>
+			            <%= Donor.find(@relationship.donor_id).location %>
 			        </p>
 
 			        <p>
 			            <strong>Zip:</strong>
-			            <%= Doner.find(@relationship.doner_id).zip %>
+			            <%= Donor.find(@relationship.donor_id).zip %>
 			        </p>
 
 			        <p>
 			            <strong>Description:</strong>
-			            <%= Doner.find(@relationship.doner_id).description %>
+			            <%= Donor.find(@relationship.donor_id).description %>
 			        </p>
 
 			        <p>
 			            <strong>Life event:</strong>
-			            <%= Doner.find(@relationship.doner_id).life_event %>
+			            <%= Donor.find(@relationship.donor_id).life_event %>
 			        </p>
 
 			        <p>
 			            <strong>Donation goal:</strong>
-			            <%= Doner.find(@relationship.doner_id).donation_goal %>
+			            <%= Donor.find(@relationship.donor_id).donation_goal %>
 			        </p>
 
 			        <p>
 			            <strong>Donation ytd:</strong>
-			            <%= Doner.find(@relationship.doner_id).donation_YTD %>
+			            <%= Donor.find(@relationship.donor_id).donation_YTD %>
 			        </p> -->
 
 				</div>
@@ -112,7 +112,7 @@
 		<div class="col-md-6">
 			<div class="card">
 	        	<div class="card-header">
-	        		<%= image_tag Doner.find(@relationship.target).image.url(:small) %>
+	        		<%= image_tag Donor.find(@relationship.target).image.url(:small) %>
 	        	</div>
 	        	<div class="card-body">
 	        		<p>
@@ -122,87 +122,87 @@
 
 					<p>
 					  <strong>Target Name:</strong>
-					  <%= Doner.find(@relationship.target).name %>
+					  <%= Donor.find(@relationship.target).name %>
 					</p>
 
 					<!-- <p>			
 			            <strong>Age:</strong>
-			            <%= Doner.find(@relationship.target).age %>
+			            <%= Donor.find(@relationship.target).age %>
 			        </p>
 
 			        <p>
 			            <strong>Gender:</strong>
-			            <%= Doner.find(@relationship.target).gender %>
+			            <%= Donor.find(@relationship.target).gender %>
 			        </p>
 
 			        <p>
 			            <strong>Race:</strong>
-			            <%= Doner.find(@relationship.target).race %>
+			            <%= Donor.find(@relationship.target).race %>
 			        </p>
 
 			        <p>
 			            <strong>Religion:</strong>
-			            <%= Doner.find(@relationship.target).religion %>
+			            <%= Donor.find(@relationship.target).religion %>
 			        </p>
 
 			        <p>
 			            <strong>Networth:</strong>
-			            <%= Doner.find(@relationship.target).networth %>
+			            <%= Donor.find(@relationship.target).networth %>
 			        </p>
 
 			        <p>
 			            <strong>Employer:</strong>
-			            <%= Doner.find(@relationship.target).employer %>
+			            <%= Donor.find(@relationship.target).employer %>
 			        </p>
 
 			        <p>
 			            <strong>Position:</strong>
-			            <%= Doner.find(@relationship.target).position %>
+			            <%= Donor.find(@relationship.target).position %>
 			        </p>
 
 			        <p>
 			            <strong>Education:</strong>
-			            <%= Doner.find(@relationship.target).education %>
+			            <%= Donor.find(@relationship.target).education %>
 			        </p>
 
 			        <p>
 			            <strong>Associations:</strong>
-			            <%= Doner.find(@relationship.target).associations %>
+			            <%= Donor.find(@relationship.target).associations %>
 			        </p>
 
 			        <p>
 			            <strong>Military:</strong>
-			            <%= Doner.find(@relationship.target).military %>
+			            <%= Donor.find(@relationship.target).military %>
 			        </p>
 
 			        <p>
 			            <strong>Location:</strong>
-			            <%= Doner.find(@relationship.target).location %>
+			            <%= Donor.find(@relationship.target).location %>
 			        </p>
 
 			        <p>
 			            <strong>Zip:</strong>
-			            <%= Doner.find(@relationship.target).zip %>
+			            <%= Donor.find(@relationship.target).zip %>
 			        </p>
 
 			        <p>
 			            <strong>Description:</strong>
-			            <%= Doner.find(@relationship.target).description %>
+			            <%= Donor.find(@relationship.target).description %>
 			        </p>
 
 			        <p>
 			            <strong>Life event:</strong>
-			            <%= Doner.find(@relationship.target).life_event %>
+			            <%= Donor.find(@relationship.target).life_event %>
 			        </p>
 
 			        <p>
 			            <strong>Donation goal:</strong>
-			            <%= Doner.find(@relationship.target).donation_goal %>
+			            <%= Donor.find(@relationship.target).donation_goal %>
 			        </p>
 
 			        <p>
 			            <strong>Donation ytd:</strong>
-			            <%= Doner.find(@relationship.target).donation_YTD %>
+			            <%= Donor.find(@relationship.target).donation_YTD %>
 			        </p> -->
 	        	</div>
 	        </div>
