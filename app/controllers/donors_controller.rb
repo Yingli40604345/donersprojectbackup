@@ -32,7 +32,7 @@ class DonorsController < ApplicationController
 
     @donors=Donor.where(id: @nodeid)
     # @relationshiphash1=@donor.relationships.as_json.map{|a| a.slice('donor_id', 'target','link_description')}
-    @relationship_hash_array= @donor.relationships.collect{|relationship| {from: relationship.donor_id, to: relationship.target,label: relationship.link_description}}.to_json
+    @relationship_hash_array= @donor.relationships.collect{|relationship| {from: relationship.donor_id, to: relationship.target,label: relationship.link_description,  arrows:'to'}}.to_json
     # @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage'}}.to_json
     @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage',  image: donor.image.url(:thumb)}}.to_json
   end

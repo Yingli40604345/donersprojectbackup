@@ -2,7 +2,12 @@
 	<h1>Editing Donor</h1>
 
 	<%= render 'form' %>
-
-	<%= link_to 'Show', @donor, class: "btn btn-info" %> 
-	<%= link_to 'Back', donors_path,class: "btn btn-warning" %>
+	<div class="row">
+		<div class="col-md-6">
+			<%= link_to 'Show', @donor, class: "pull-left btn snazzybtn snazzybtn-onev1" %> 
+		</div>
+		<div class="col-md-6">
+			<%= link_to 'Back', donors_path,class: "pull-right btn snazzybtn snazzybtn-twov1" %>
+		</div>
+	</div>
 </div>

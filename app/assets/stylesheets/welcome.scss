@@ -66,14 +66,25 @@
 }
 
 //cutebutton
+//Colours
 $green: #2ecc71;
 $red: #e74c3c;
 $blue: #3498db;
 $yellow: #f1c40f;
 $purple: #8e44ad;
 $turquoise: #1abc9c;
+$bblue:  #67BCDB;
 
-.btncute {
+// Reset and Layout Styles
+
+
+
+
+
+
+
+// Basic Button Style
+.cutebtn {
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
@@ -102,7 +113,7 @@ $turquoise: #1abc9c;
 }
 
 //BUTTON 1
-.btncute1 {
+.cutebtnfirst {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   &:hover {
     box-shadow: 0 0 40px 40px $red inset;
@@ -110,9 +121,9 @@ $turquoise: #1abc9c;
 }
 
 //BUTTON 2
-.btncute2 {
+.cutebtnsecondv1 {
   border-radius: 3em;
-  border-color: white;
+  border-color: $turquoise;
   color: #fff;
   background: {
     image: linear-gradient(to right, 
@@ -166,8 +177,67 @@ $turquoise: #1abc9c;
   }
 }
 
+
+
+
+.cutebtnsecondv2 {
+  border-radius: 3em;
+  border-color: $bblue;
+  color: #fff;
+  background: {
+    image: linear-gradient(to right, 
+      transparentize($bblue, 0.4),
+      transparentize($bblue, 0.4) 5%,
+      $bblue 5%, 
+      $bblue 10%,
+      transparentize($bblue, 0.4) 10%,
+      transparentize($bblue, 0.4) 15%,
+      $bblue 15%, 
+      $bblue 20%,
+      transparentize($bblue, 0.4) 20%,
+      transparentize($bblue, 0.4) 25%,
+      $bblue 25%, 
+      $bblue 30%,
+      transparentize($bblue, 0.4) 30%,
+      transparentize($bblue, 0.4) 35%,
+      $bblue 35%, 
+      $bblue 40%,
+      transparentize($bblue, 0.4) 40%,
+      transparentize($bblue, 0.4) 45%,
+      $bblue 45%, 
+      $bblue 50%,
+      transparentize($bblue, 0.4) 50%,
+      transparentize($bblue, 0.4) 55%,
+      $bblue 55%, 
+      $bblue 60%,
+      transparentize($bblue, 0.4) 60%,
+      transparentize($bblue, 0.4) 65%,
+      $bblue 65%, 
+      $bblue 70%,
+      transparentize($bblue, 0.4) 70%,
+      transparentize($bblue, 0.4) 75%,
+      $bblue 75%, 
+      $bblue 80%,
+      transparentize($bblue, 0.4) 80%,
+      transparentize($bblue, 0.4) 85%,
+      $bblue 85%, 
+      $bblue 90%,
+      transparentize($bblue, 0.4) 90%,
+      transparentize($bblue, 0.4) 95%,
+      $bblue 95%, 
+      $bblue 100%);
+    position: 0 0;
+    size: 100%;
+  }
+  transition: background 300ms ease-in-out;
+  
+  &:hover {
+    background-position: 100px;
+  }
+}
+
 //BUTTON 3
-.btncute3 {
+.cutebtnthird {
   border-color: $blue;
   color: #fff;
   box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
@@ -179,7 +249,7 @@ $turquoise: #1abc9c;
 }
 
 // BUTTON 4
-.btncute4 {
+.cutebtnfourth {
   // background: $yellow;
   border-color: $yellow;
   color: #fff;
@@ -196,7 +266,7 @@ $turquoise: #1abc9c;
 }
 
 //BUTTON 5
-.btncute5 {
+.cutebtnfifth {
   border-color: $purple;
   // border: 0;
   border-radius: 0;
@@ -228,8 +298,9 @@ $turquoise: #1abc9c;
   }
 }
 
+
 //BUTTON 6
-.btncute6 {
+.cutebtnsixth {
   border-radius: 3em;
   border-color: $green;
   color: $green;
@@ -245,3 +316,146 @@ $turquoise: #1abc9c;
     background-position: 0 100%;
   }
 }
+
+// snazzy button
+// Import font
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
+// Colours
+$bodybg: #674172;
+$darkgrey: #333;
+$whitegrey: #ececec;
+$yellow: #f1c40f;
+$turquoise: #1abc9c;
+$red: #e74c3c;
+$blue: #3498db;
+$orange: #e67e22;
+
+
+// Media queries to change body font size
+// This then triggers other units in the doc to change size of elements
+
+.snazzybuttons {
+  display: flex;
+  justify-content: space-around;
+}
+// Buttons
+.snazzybtn {
+  font-family: 'lato';
+  font-size: 0.75rem;
+  background: none;
+  border: 0.175em solid $whitegrey;
+  padding: 1.4em 3.3em;
+  color: $whitegrey;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+.snazzyround {
+  border-radius: 24px;
+}
+.snazzysquare {
+  border-radius: 0px;
+}
+// Button 1
+.snazzybtn-one {
+  border-color: $yellow;
+  color: $darkgrey;
+  box-shadow: 0 0 0 0 $yellow,
+    inset 0 0 200px 28px $yellow;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+  box-shadow: 0 0 40px 0 $yellow,
+    inset 0 0 25px 0 $yellow;
+  color: $yellow;
+  }
+}
+
+.snazzybtn-onev1 {
+  border-color: $blue;
+  color: $darkgrey;
+  box-shadow: 0 0 0 0 $blue,
+    inset 0 0 200px 28px $blue;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+  box-shadow: 0 0 40px 0 $blue,
+    inset 0 0 25px 0 $blue;
+  color: $blue;
+  }
+}
+// Button 2
+.snazzybtn-two {
+  color: $blue;
+  border-color: $blue;
+  box-shadow:  0 0 0 0 $blue, inset 0 0 0 0 $blue;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    color: $whitegrey;
+    box-shadow: 0 0 40px 0 $blue, inset 0 0 200px 5px $blue;
+  }
+}
+.snazzybtn-twov1 {
+  color: $orange;
+  border-color: $orange;
+  box-shadow:  0 0 0 0 $orange, inset 0 0 0 0 $orange;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    color: $whitegrey;
+    box-shadow: 0 0 40px 0 $orange, inset 0 0 200px 5px $orange;
+  }
+}
+// Button 3
+.snazzybtn-three {
+  border-color: $turquoise;
+  color: $whitegrey;
+  background:{
+    image: linear-gradient(45deg, $turquoise, transparent);
+    position: 75%;
+    size: 200%;
+  }
+  transition: background 300ms ease-in-out;
+  &:hover {
+    background:{
+      position: 0%;
+    }
+  }
+}
+// Button 4
+.snazzybtn-four {
+  border-color: $red;
+  color: $red;
+  background:{
+    image: linear-gradient(45deg, transparent 50%, $red 50%);
+    position: 25%;
+    size: 400%;
+  }
+  transition: background 500ms ease-in-out, color 500ms ease-in-out;
+  &:hover {
+    color: $whitegrey;
+    background:{
+      position: 100%;
+    }
+  }
+}
+// Button 5
+.snazzybtn-five{
+  border-color: $orange;
+  background:{
+    image: linear-gradient(0deg, transparent 50%, $orange 50%);
+    position: 0 -100%;
+    size: 500%;
+  }
+  transition: background 500ms ease-in-out, color 500ms ease-in-out, box-shadow 500ms ease-in-out;
+  &:hover {
+    color: $orange;
+    background:{
+      position: 0 -50%;
+    }
+    box-shadow: 0 0 40px 0 $orange;
+  }
+}
+// ! snazzy button

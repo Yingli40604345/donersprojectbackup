@@ -1,14 +1,20 @@
 <div class="container">
-<%#= @donor.relationships%><br/>
-<%#= @donor.relationships.as_json%><br/>
-<%#= @relationshiphash1%><br/>
-<%= @relationship_hash_array%><br/>
-<%= @donor_hash_array%><br/>
-<%= @targethash%><br/>
-<%=@targetidvalues%><br/>
-<%=@nodeid%>
+<%#= @donor.relationships%>
+<%#= @donor.relationships.as_json%>
+<%#= @relationshiphash1%>
+<%#= @relationship_hash_array%>
+<%#= @donor_hash_array%>
+<%#= @targethash%>
+<%#=@targetidvalues%>
+<%#=@nodeid%>
+<div class="modal fade" id="donorInformationModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width:400px;">
+     <div class="modal-content">
+     </div>
+  </div>
+</div>
 
-
+  
 
 
   <div class="row">
@@ -103,13 +109,37 @@
           </p>
         </div>
       </div>
-      <div class="card-footer text-center">
-        <%= link_to 'Edit', edit_donor_path(@donor), class: "btn btn-success" %> 
-        <%= link_to 'Back', donors_path , class: "btn btn-primary"%>
+      <div class="card-footer">
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to 'Edit', edit_donor_path(@donor), class: "btn snazzybtn snazzybtn-onev1 pull-left" %> 
+          </div>
+         
+          <div class="col-md-6">
+            <%= link_to 'Back', donors_path, class: "btn snazzybtn snazzybtn-twov1 pull-right"%>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="col-md-8">
-      <div id="donornetwork"></div>
+      <div class="title">
+        <br/>
+        <div class="title-word">Social Network
+        </div>
+      </div>
+      <div id="donornetwork"></div> 
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= button_to 'Add a Donor', new_donor_path,  :method => :get,class: "cutebtn cutebtnsecondv1 pull-left" %> 
+          </div>
+          <div class="col-md-6 ">
+            <%= button_to 'Add a Relationship', new_relationship_path , :method => :get,class: "cutebtn cutebtnsecondv2 pull-right"%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -160,5 +190,35 @@
 
     };
   var network = new vis.Network(container, data, options);
+
+
+
+
+
+  network.on( 'click', function(params) {
+    //console.log(params);
+    if (params.nodes.length > 0) {
+        $.ajax({ url: '/searchdonor',
+          data: { 
+          "donornodeid": params.nodes[0]
+         }})
+        
+       
+      };
+ 
+   });
+
+
+  var networkCanvas = document.getElementById("donornetwork").getElementsByTagName("canvas")[0]
+  function changeCursor(newCursorStyle){
+    networkCanvas.style.cursor = newCursorStyle;
+  }
+ 
+  network.on('hoverNode', function () {
+    changeCursor('pointer');
+  });
+  network.on('blurNode', function () {
+    changeCursor('default');
+  });
   </script>
 </div>

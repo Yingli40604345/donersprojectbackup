@@ -72,7 +72,10 @@ class RelationshipsController < ApplicationController
     
    if params[:donorid]
       @donor=Donor.searchdonor(params[:donorid])
-      
+   elsif params[:donornodeid]
+      @donor=Donor.searchdonor(params[:donornodeid])
+
+       
     end
   end
 
