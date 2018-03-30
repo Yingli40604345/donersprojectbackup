@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :relationships
   get 'welcome/index'
   get 'searchdonor', to: 'relationships#searchdonor'
+  get 'searchdonorname', to: 'relationships#searchdonorname'
   # get 'searchdonornameforrelationship', to: 'relationships#searchdonornameforrelationship'
   devise_for :users
   resources :donors

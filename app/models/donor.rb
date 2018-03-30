@@ -39,6 +39,14 @@ class Donor < ActiveRecord::Base
 		end	
 	end
 
+	def self.searchdonorname(search)
+		if search
+			where("name LIKE ? OR id = ?", "%#{search}%",search).order('created_at DESC')
+		else
+			all
+		end	
+	end
+
 	# def self.donornamesearch(search)
 	# 	if search
 	# 		where("name LIKE ?", "%#{search}%").order('created_at DESC')

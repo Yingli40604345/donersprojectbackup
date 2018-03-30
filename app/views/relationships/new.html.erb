@@ -29,6 +29,17 @@
 	       
 	        <!-- !search form -->
 	        <br/>
+
+
+	        <%= form_tag(searchdonor_path, :method => "get", remote: true) do %>
+	            <%= text_field_tag :donornameautocomplete,  params[:donornameautocomplete],  placeholder: "Please Enter Donor Name" ,class: "searchinputwithoutanimation", data: {autocomplete_source: Donor.order(:name).map(&:name)}%>
+
+	            <%#= submit_tag "Search",:class => "btn btn-success" %>
+	            <%= button_tag(type: "submit", class: "btn transparent_button", id: "searchdonorbtn") do %>
+	                <i class="fa fa-lg fa-search searchicon"></i>
+	            <% end %>
+	          
+	         <% end %>
 	        <br/>
 
 
@@ -55,6 +66,6 @@
 
 
 
-	<%= link_to 'Back', relationships_path, class: "btn btn-warning" %>
+	<%= link_to 'Back', relationships_path, class: "btn snazzybtn snazzybtn-twov1" %>
 
 </div>

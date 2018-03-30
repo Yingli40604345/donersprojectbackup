@@ -13,7 +13,7 @@
 
       <span class="useremail"><%= current_user.email %></span>
 
-      <%= link_to "logout", destroy_user_session_path, class: "btn btn-danger btn-sm",method: :delete %>
+      <%= link_to "logout", destroy_user_session_path, class: "btn snazzybtn snazzybtn-five-sm",method: :delete %>
     </div>
   </div>
 
@@ -41,12 +41,32 @@
               <i class="fa fa-lg fa-search searchicon"></i>
           <% end %>
         
+        <% end %>      
+     
+      <!-- !search form -->
+    </div>
+
+
+
+    <div class="col-md-4 text-center">
+      <!-- search form -->
+      
+            
+        <%= form_tag(relationships_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :donorname, params[:donorname], placeholder: "Donor Name" ,class: "searchinput"%>
+
+          <%#= submit_tag "Search",:class => "btn btn-success" %>
+          <%= button_tag(type: "submit", class: "btn transparent_button") do %>
+              <i class="fa fa-lg fa-search searchicon"></i>
+          <% end %>
+        
         <% end %>
           
         
      
       <!-- !search form -->
     </div>
+
 
   
   </div>
@@ -82,9 +102,9 @@
           <td><%= Donor.find(relationship.target).name %></td>
           <td><%= image_tag Donor.find(relationship.target).image.url(:thumb) %></td>
           <td><%= relationship.link_description %></td>
-          <td><%= link_to 'Show', relationship,class: "btn btn-info" %></td>
-          <td><%= link_to 'Edit', edit_relationship_path(relationship),class: "btn btn-warning" %></td>
-          <td><%= link_to 'Delete', relationship,class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', relationship,class: "btn snazzybtn-one-sm-blue" %></td>
+          <td><%= link_to 'Edit', edit_relationship_path(relationship),class: "btn snazzybtn-one-sm-orange" %></td>
+          <td><%= link_to 'Delete', relationship,class: "btn snazzybtn-one-sm-red", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

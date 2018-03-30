@@ -7,10 +7,12 @@ class RelationshipsController < ApplicationController
 
     if params[:donorid]
       @relationships=current_user.relationships.donorrelationshipssearch(params[:donorid]).order('created_at DESC').page params[:page]
-    else
+    elsif params[:donorname]
+      @relationships= current_user.relationships.where(donor_id: Donor.searchdonorname(params[:donorname]).map(&:id)).order('donor_id').page params[:page]
+    else   
       @relationships = current_user.relationships.order('created_at DESC').page params[:page]
     end
-
+    
   end
 
   # GET /relationships/1
@@ -25,6 +27,8 @@ class RelationshipsController < ApplicationController
 
   # GET /relationships/1/edit
   def edit
+    @autocompletenames=Donor.order(:name).map(&:name)
+    
   end
 
   # POST /relationships
@@ -69,15 +73,18 @@ class RelationshipsController < ApplicationController
 
 
   def searchdonor
-    
-   if params[:donorid]
-      @donor=Donor.searchdonor(params[:donorid])
-   elsif params[:donornodeid]
-      @donor=Donor.searchdonor(params[:donornodeid])
-
-       
+    case
+    when params[:donornameautocomplete]
+      @donor=Donor.searchdonorname(params[:donornameautocomplete])
+    when params[:donorid]
+      @donor=Donor.searchdonor(params[:donorid]) 
+    when params[:donornodeid]
+      @donor=Donor.searchdonor(params[:donornodeid])      
     end
   end
+
+  
+
 
 
   # def searchdonornameforrelationship

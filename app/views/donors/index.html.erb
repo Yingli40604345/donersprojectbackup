@@ -15,7 +15,7 @@
 
       <span class="useremail"><%= current_user.email %></span>
 
-      <%= link_to "logout", destroy_user_session_path, class: "btn btn-danger btn-sm",method: :delete %>
+      <%= link_to "logout", destroy_user_session_path, class: "btn snazzybtn snazzybtn-five-sm",method: :delete %>
     </div>
   </div>
 
@@ -130,9 +130,9 @@
             </div>
           </div>
           <div class="card-footer text-center"> 
-            <%= link_to 'View', donor , class: "btn btn-sm btn-primary" %></td>
-            <%= link_to 'Edit', edit_donor_path(donor), class: "btn btn-sm btn-warning"%></td>
-            <%= link_to 'Delete', donor, class: "btn btn-sm btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'View', donor , class: "btn snazzybtn-one-sm-blue " %></td>
+            <%= link_to 'Edit', edit_donor_path(donor), class: "btn snazzybtn-one-sm-orange"%></td>
+            <%= link_to 'Delete', donor, class: "btn snazzybtn-one-sm-red" , method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <br/>
       </div>    
