@@ -4,3 +4,7 @@
 jQuery ->
 	$('#donornameautocomplete').autocomplete
 		source: $('#donornameautocomplete').data('autocomplete-source')
+
+
+	$('#donorname').autocomplete
+		source: $('#donorname').data('autocomplete-source')

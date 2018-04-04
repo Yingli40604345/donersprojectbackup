@@ -26,15 +26,25 @@ class DonorsController < ApplicationController
   # GET /donors/1
   # GET /donors/1.json
   def show
-    @targethash=@donor.relationships.map{|a| a.slice(:target)}
-    @targetidvalues=@targethash.map{|x| x[:target]}
-    @nodeid=@targetidvalues.push(@donor.id)
+    # v1 based on each person's first level relationship
+    # @targethash=@donor.relationships.map{|a| a.slice(:target)}
+    # @targetidvalues=@targethash.map{|x| x[:target]}
+    # @nodeid=@targetidvalues.push(@donor.id)
 
-    @donors=Donor.where(id: @nodeid)
-    # @relationshiphash1=@donor.relationships.as_json.map{|a| a.slice('donor_id', 'target','link_description')}
-    @relationship_hash_array= @donor.relationships.collect{|relationship| {from: relationship.donor_id, to: relationship.target,label: relationship.link_description,  arrows:'to'}}.to_json
-    # @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage'}}.to_json
-    @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage',  image: donor.image.url(:thumb)}}.to_json
+    # @donors=Donor.where(id: @nodeid)
+    # # @relationshiphash1=@donor.relationships.as_json.map{|a| a.slice('donor_id', 'target','link_description')}
+    # @relationship_hash_array= @donor.relationships.collect{|relationship| {from: relationship.donor_id, to: relationship.target,label: relationship.link_description,  arrows:'to'}}.to_json
+    # # @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage'}}.to_json
+    # @donor_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage',  image: donor.image.url(:thumb)}}.to_json
+  
+    #v2 everyone's show page have the whole picture 
+
+    @donors=Donor.all
+    @donor_hash_array= [ "id": @donor.id,"label": @donor.name, shape: 'circularImage', "image":@donor.image.url(:thumb)].to_json
+    @donors_hash_array= @donors.collect{|donor| {id: donor.id, label: donor.name, shape: 'circularImage',  image: donor.image.url(:thumb)}}.to_json
+    @relationships=Relationship.all
+    @relationship_hash_array= @relationships.collect{|relationship| {from: relationship.donor_id, to: relationship.target,label: relationship.link_description,  arrows:'to'}}.to_json
+   
   end
 
   # GET /donors/new
@@ -85,6 +95,33 @@ class DonorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+
+  def processdonornode
+    
+
+    
+    if params[:donornodeid]
+      #get children nodes's relationships
+      @childrenrelationships=Relationship.donorrelationshipssearch(params[:donornodeid]) 
+      @childrenrelationships_hash_array= @childrenrelationships.collect{|relationship| {id:  relationship.id,from: relationship.donor_id, to: relationship.target,label: relationship.link_description,  arrows:'to'}}.to_json
+   
+      #get children nodes
+      @childrenlist=Relationship.donorrelationshipssearch(params[:donornodeid]).map{|a| a.slice(:target)}
+      @childrenidvalues=@childrenlist.map{|x| x[:target]}
+      @childreninfo=Donor.find(@childrenidvalues) 
+      @children_hash_array= @childreninfo.collect{|child| {id: child.id, label: child.name, shape: 'circularImage',  image: child.image.url(:thumb)}}.to_json
+
+
+
+    end
+  end
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

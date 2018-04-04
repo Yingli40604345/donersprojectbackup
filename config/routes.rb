@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   resources :relationships
   get 'welcome/index'
   get 'searchdonor', to: 'relationships#searchdonor'
+
+  get 'processdonornode', to: 'donors#processdonornode'
   get 'searchdonorname', to: 'relationships#searchdonorname'
   # get 'searchdonornameforrelationship', to: 'relationships#searchdonornameforrelationship'
   devise_for :users
   resources :donors
   root 'welcome#index'
+
+  resources :autocompletenames
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,12 +1,27 @@
 <div class="container">
+  <%#= @targethash%><br/>
+  <%#=@targetidvalues%><br/>
 <%#= @donor.relationships%>
 <%#= @donor.relationships.as_json%>
 <%#= @relationshiphash1%>
-<%#= @relationship_hash_array%>
-<%#= @donor_hash_array%>
-<%#= @targethash%>
-<%#=@targetidvalues%>
+<%#=@donors_hash_array%><br/>
+<%#=@donors%><br/>
+
+<%#= @relationship_hash_array%><br/>
+<%#= @donors_hash_array%><br/>
+
 <%#=@nodeid%>
+
+
+<div id="testchildrenrelationship">
+</div>
+<br/>
+<div id="testchildrennodeinfo">
+</div>
+<br/>
+<div id="testchildrenappend">
+</div>
+
 <div class="modal fade" id="donorInformationModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="width:400px;">
      <div class="modal-content">
@@ -148,10 +163,19 @@
 
   <script type="text/javascript">
     // create an array with nodes
-  var nodes = new vis.DataSet(<%= raw @donor_hash_array%>);
+    
+    
+
+   
+      
+      var nodes = new vis.DataSet(<%= raw @donor_hash_array%>);
+ 
 
   // create an array with edges
-  var edges = new vis.DataSet(<%= raw@relationship_hash_array%>);
+
+    var edges = new vis.DataSet([]);
+
+
 
   // create a network
   var container = document.getElementById('donornetwork');
@@ -160,6 +184,7 @@
     edges: edges
   };
   var options = {
+    
       interaction: {
           hover: true,
 
@@ -194,9 +219,22 @@
 
 
 
-
   network.on( 'click', function(params) {
-    //console.log(params);
+    console.log(params);
+    if (params.nodes.length > 0) {
+        $.ajax({ url: '/processdonornode',
+          data: { 
+          "donornodeid": params.nodes[0]
+         }})
+        
+       
+     };
+ 
+   });
+
+
+  network.on( 'hold', function(params) {
+    console.log(params);
     if (params.nodes.length > 0) {
         $.ajax({ url: '/searchdonor',
           data: { 
@@ -204,7 +242,7 @@
          }})
         
        
-      };
+     };
  
    });
 
@@ -220,5 +258,14 @@
   network.on('blurNode', function () {
     changeCursor('default');
   });
+
+
+
+
+
+
+
+
+
   </script>
 </div>

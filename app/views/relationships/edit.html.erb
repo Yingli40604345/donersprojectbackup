@@ -31,7 +31,7 @@
 
          <!-- search name -->
          <%= form_tag(searchdonor_path, :method => "get", remote: true) do %>
-            <%= text_field_tag :donornameautocomplete,  params[:donornameautocomplete],  placeholder: "Please Enter Donor Name" ,class: "searchinputwithoutanimation", data: {autocomplete_source: @autocompletenames}%>
+            <%= text_field_tag :donornameautocomplete,  params[:donornameautocomplete],  placeholder: "Please Enter Donor Name" ,class: "searchinputwithoutanimation", data: {autocomplete_source: autocompletenames_path}%>
 
             <%#= submit_tag "Search",:class => "btn btn-success" %>
             <%= button_tag(type: "submit", class: "btn transparent_button", id: "searchdonorbtn") do %>

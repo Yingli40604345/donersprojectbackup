@@ -36,7 +36,7 @@
       
             
         <%= form_tag(donors_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "ID/Name" ,class: "searchinput"%>
+          <%= text_field_tag :search, params[:search], placeholder: "ID/Name" ,class: "searchinput", data: {autocomplete_source: autocompletenames_path}%>
 
           <%#= submit_tag "Search",:class => "btn btn-success" %>
           <%= button_tag(type: "submit", class: "btn transparent_button") do %>
